@@ -12,3 +12,19 @@ def test_my_pop_example(pop_last):
 
     assert result == 4
     assert items == [7]
+
+
+def test_mixed_values_keep_repeats_and_input(positive_squares):
+    values = [0, -4, 5, 5, 2]
+    result = positive_squares(values)
+    assert result == [25, 25, 4]
+    assert values == [0, -4, 5, 5, 2]
+
+
+def test_map_keeps_keys_and_input(positive_square_map):
+    record = {"zero": 0, "negative": -4, "first": 5, "repeat": 5}
+    result = positive_square_map(record)
+    assert result == {"first": 25, "repeat": 25}
+    assert list(result) == ["first", "repeat"]
+    assert record == {"zero": 0, "negative": -4, "first": 5, "repeat": 5}
+    assert result is not record
